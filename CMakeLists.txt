@@ -55,6 +55,10 @@ endif ()
 add_library(super_sort INTERFACE)
 
 target_include_directories(super_sort INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+
+install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/ DESTINATION include)
+install(TARGETS super_sort DESTINATION lib)
+
 if (link_flags)
     target_link_libraries(super_sort INTERFACE ${link_flags})
     target_compile_options(super_sort INTERFACE ${compile_flags})
